@@ -1,13 +1,41 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // Create an empty object to store encountered numbers
+  const numMap = {};
+
+  // Iterate through the input array
+  for (let num of array) {
+      // Calculate the difference needed to reach the target
+      const difference = target - num;
+      
+      // If the difference exists in numMap, a pair is found
+      if (numMap[difference]) {
+          return true;
+      }
+      
+      // Store the current number in numMap
+      numMap[num] = true;
+  }
+
+  // No pair found, return false
+  return false;
 }
 
+
 /* 
-  Write the Big O time complexity of your function here
+  // Big O time complexity: O(n), where n is the number of elements in the input array.
+// Space complexity: O(n), where n is the number of elements in the input array.
 */
 
 /* 
-  Add your pseudocode here
+  function hasTargetSum(arr, target):
+    1. Initialize an empty object called `numMap`.
+    2. Iterate through the array `arr`:
+        a. Calculate `difference` as `target - arr[i]`.
+        b. If `difference` exists in `numMap`, return true (there is a pair).
+        c. Otherwise, add `arr[i]` as a key to `numMap`.
+    3. If no pair is found during the iteration, return false.
+
+
 */
 
 /*
